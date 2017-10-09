@@ -1,3 +1,5 @@
-_site
+_site/about
+_site/assets
+_site/jekyll
 .sass-cache
 .jekyll-metadata
