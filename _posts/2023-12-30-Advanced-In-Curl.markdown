@@ -12,9 +12,9 @@
 示例：
 
 ```bash
-curl -i -X POST 'http://csp.api3.yf-m17.tcecqpoc.fsphere.cn' \ 
+curl -i -X POST 'http://csp.api3.yf-m17.taecqpoc.fphere.cn' \ 
 -H 'Content-Type:application/x-www-form-urlencode' \ 
--d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=AKIDKm0vZy4rLUHnzqNbU3HAi0ycvtXrqUps&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
+-d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=xr*******c&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
 
 
 HTTP/1.1 200 OK
@@ -37,7 +37,7 @@ Access-Control-Allow-Credentials: true
 示例
 
 ```bash
-curl -i -L -v -X POST 'http://csp.api3.yf-m17.tecqpoc.fphere.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=AKIDKm0vZy4rLUHnzqNbU3HAi0ycvtXrqUps&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
+curl -i -L -v -X POST 'http://csp.api3.yf-m17.tecqpoc.fphere.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=Axc******tXrqUps&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
 Note: Unnecessary use of -X or --request, POST is already inferred.
 *   Trying 118.24.227.108...
 * TCP_NODELAY set
@@ -93,7 +93,7 @@ time_total:  %{time_total}\n
 示例
 
 ```bash
-curl -w "@curl-format" -i  -X POST 'http://csp.api3.yf-m17.tccqpoc.fphere.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=AKIDKm0vZy4rLUHnzqNbU3HAi0ycvtXrqUps&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
+curl -w "@curl-format" -i  -X POST 'http://csp.api3.yf-m17.tccrqpoc.fphere.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=AKIDKm******Ups&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
 HTTP/1.1 200 OK
 Server: nginx
 Date: Wed, 17 Mar 2021 21:30:05 GMT
@@ -118,7 +118,7 @@ time_total:  0.102956
 
 
 ```bash
-curl -i -g 'http://gz.api.berad.xencenrun.com/metric/dimensionlist?page=1&each=10&groupName=consumer_info_topic&apikey=qjegtKf5vzCRo5sREHDCDilHvL0N5nZd&cond[appid]=1258638997&cond[instance_id]=kafka-lre3an5q'
+curl -i -g 'http://gz.api.berad.xencenrun.com/metric/dimensionlist?page=1&each=10&groupName=consumer_info_topic&apikey=qjegtK********lHvL0N5nZd&cond[appid]=1258638997&cond[instance_id]=kafka-lre3an5q'
 
 HTTP/1.1 200 OK
 Server: nginx
