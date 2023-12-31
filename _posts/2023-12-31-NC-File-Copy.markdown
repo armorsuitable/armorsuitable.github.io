@@ -23,3 +23,4 @@ nc -l [:port] > file.txt
 
 ```bash
 nc [:targetIp] [:targetPort] < file.txt
+```
