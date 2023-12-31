@@ -70,5 +70,6 @@ ps eww -p ${PID}
 ## 当前占用CPU/内存最多的10个进程
 
 可以用以下命令查看使用内存最多的10个进程
-```javascript
+```bash
 ps -aux|sort -k4nr|head -10
+```
