@@ -16,19 +16,19 @@ serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 
 ```java
 while (true) {
-		int selectedKeyCount = selector.select(1000);
-		// 没有完成的事件
-		if (selectedKeyCount == 0) {
-				continue;
-		}
-		// 完成的事件集
-		Set<SelectionKey> selectionKeySet = selector.selectedKeys();
-		//
-		{
-			....
-		}
-		// 清除完成的事件集合
-		selectionKeySet.clear();
+	int selectedKeyCount = selector.select(1000);
+	// 没有完成的事件
+	if (selectedKeyCount == 0) {
+			continue;
+	}
+	// 完成的事件集
+	Set<SelectionKey> selectionKeySet = selector.selectedKeys();
+	//
+	{
+		....
+	}
+	// 清除完成的事件集合
+	selectionKeySet.clear();
 		
 }
 ```
