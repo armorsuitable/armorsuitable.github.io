@@ -3,3 +3,4 @@ _site/assets
 _site/jekyll
 .sass-cache
 .jekyll-metadata
+.vscode
