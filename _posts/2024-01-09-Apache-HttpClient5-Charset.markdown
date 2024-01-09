@@ -119,7 +119,7 @@ public static String toString(final HttpEntity entity, final int maxResultLength
 }
 ```
 
-可以看到默认获取的是 Entity 中的编码，默认Entity 是没有指定编码的， 需要默认实现 **AbstractHttpClientResponseHandler<T>**, 并调用**`EntityUtil.toString(entity, charset)`** 来指定编码格式
+可以看到默认获取的是 Entity 中的编码，默认Entity 是没有指定编码的， 需要默认实现 **AbstractHttpClientResponseHandler<T>**, 并调用 **EntityUtil.toString(entity, charset)**  来指定编码格式
 ```java
 /**
  * Gets the entity content as a String, using the provided default character set
