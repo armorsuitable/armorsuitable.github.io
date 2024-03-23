@@ -1,6 +1,6 @@
 # Get Environment Variable In PHP-FPM
 
-在构建 Docker 镜像的时候发现声明了 **ENV** ，但再PHP程序中仍然无法获取
+在构建 Docker 镜像的时候发现声明了 **ENV** ，但PHP程序中无法获取
 
 Dockerfile 内容如下
 
@@ -37,7 +37,7 @@ if (!file_exists($dir)) {
 运行结果：
 
 ```bash
-## getenv("ADMIN_LOG_HOME")
+# getenv("ADMIN_LOG_HOME")
 bool(false)
 ```
 
@@ -89,4 +89,4 @@ server{
 }
 ```
 
-重启动nginx 即可
+- 重启动nginx 即可
