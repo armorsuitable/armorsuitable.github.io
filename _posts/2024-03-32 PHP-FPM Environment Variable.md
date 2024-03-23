@@ -1,6 +1,6 @@
 # Get Environment Variable In PHP-FPM
 
-在构建 Docker 镜像的时候发现声明了 Env ，但再PHP程序中仍然无法获取
+在构建 Docker 镜像的时候发现声明了 **ENV** ，但再PHP程序中仍然无法获取
 
 Dockerfile 内容如下
 
@@ -49,6 +49,11 @@ Dockerfile 中声明的环境变量只针对 **php-cli** 环境生效， 对于 
 
 再nginx 配置文件中加入 **``fastcgi_param``**
 
+```
+fastcgi_param ADMIN_LOG_HOME /data/log/kafka-admin/;
+```
+
+完整配置上下文如下：
 
 ```
 server{
