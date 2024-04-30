@@ -5,7 +5,7 @@
 Dockerfile 内容如下
 
 ```Dockerfile
-FROM xxx.xxx.com/ckafka/php-fpm81:v1.0-stable
+FROM xxx.xxx.com/kafka/php-fpm81:v1.0-stable
 
 WORKDIR /app
 
