@@ -88,7 +88,7 @@ a1 := []int{1, 3, 5}
 s2 := make([]int, 8, 12)
 fmt.Printf("s2 = %v, cap(s2) =  %d\n", s2, cap(s2))
 copy(s2, a1)
-fmt.Printf("after copy s2 = %v, cap(s2) =  %d\n", s2, cap(s2))
+fmt.Printf("after copy s2 = %v, len(s2) = %d, cap(s2) =  %d\n", s2, cap(s2))
 
 // delete element from slice
 s2 = append(s2[:2], s2[3:]...)
@@ -98,6 +98,6 @@ fmt.Printf("s2 = %v, len(s2) = %d, cap(s) = %d\n", s2, len(s2), cap(s2))
 output
 ```
 s2 = [0 0 0 0 0 0 0 0], cap(s2) =  12
-after copy s2 = [1 3 5 0 0 0 0 0], cap(s2) =  12
+after copy s2 = [1 3 5 0 0 0 0 0], len(s2) = 8, cap(s2) =  12
 after delete s2 = [1 3 0 0 0 0 0], len(s2) = 7, cap(s) = 12
 ```
