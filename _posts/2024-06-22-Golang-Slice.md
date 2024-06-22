@@ -80,7 +80,7 @@ arr = [0 5 10 15 20 25 10 11]
 当添加元素超过 cap(slice) 之后，系统会重新分配底层空间更大的数组，原先的数组可能会被GC处理掉
 
 
-**Copy Slice And Delete Slice elements **
+**Copy Slice And Delete Slice elements**
 
 ```go
 // declare a 8 element slice
