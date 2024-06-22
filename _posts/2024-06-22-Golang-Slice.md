@@ -57,3 +57,47 @@ output
 len(s) = 4 , cap(s) = 6
 len(s1) = 2 , cap(s1) = 3
 ```
+
+**Expending Slice & Slice view different Array**
+
+```go
+s = append(s, 10)
+s1 = append(s, 11)
+s1 = append(s1, 12)
+fmt.Printf("s = %v\n", s)
+fmt.Printf("s1 = %v\n", s1)
+fmt.Printf("arr = %v\n", arr)
+```
+
+s1 **no longer** view arr
+
+output
+```
+s = [10 15 20 25 10]
+s1 = [10 15 20 25 10 11 12]
+arr = [0 5 10 15 20 25 10 11]
+```
+当添加元素超过 cap(slice) 之后，系统会重新分配底层空间更大的数组，原先的数组可能会被GC处理掉
+
+
+**Copy Slice And Delete Slice elements **
+
+```go
+// declare a 8 element slice
+a1 := []int{1, 3, 5}
+s2 := make([]int, 8, 12)
+fmt.Printf("s2 = %v, cap(s2) =  %d\n", s2, cap(s2))
+copy(s2, a1)
+fmt.Printf("after copy s2 = %v, cap(s2) =  %d\n", s2, cap(s2))
+
+// delete element from slice
+s2 = append(s2[:2], s2[3:]...)
+fmt.Printf("s2 = %v, len(s2) = %d, cap(s) = %d\n", s2, len(s2), cap(s2))
+```
+
+output
+```
+s2 = [0 0 0 0 0 0 0 0], cap(s2) =  12
+after copy s2 = [1 3 5 0 0 0 0 0], cap(s2) =  12
+after delete s2 = [1 3 0 0 0 0 0], len(s2) = 7, cap(s) = 12
+```
