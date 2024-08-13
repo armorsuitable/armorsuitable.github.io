@@ -12,9 +12,9 @@
 示例：
 
 ```bash
-curl -i -X POST 'http://csp.api3.yf-m17.taecqpoc.fphere.cn' \ 
+curl -i -X POST 'http://xxxx.xxxx.xxx-m17.xxxx.fphere.cn' \ 
 -H 'Content-Type:application/x-www-form-urlencode' \ 
--d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=xr*******c&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
+-d 'Action=xxxxx&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=xr*******c&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
 
 
 HTTP/1.1 200 OK
@@ -37,7 +37,7 @@ Access-Control-Allow-Credentials: true
 示例
 
 ```bash
-curl -i -L -v -X POST 'http://csp.api3.yf-m17.tecqpoc.fphere.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=Axc******tXrqUps&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
+curl -i -L -v -X POST 'http://xxx.xxxx.xx.xxxx.xxx.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=Axc******tXrqUps&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
 Note: Unnecessary use of -X or --request, POST is already inferred.
 *   Trying 118.24.227.108...
 * TCP_NODELAY set
@@ -66,7 +66,7 @@ Connection: keep-alive
 Access-Control-Allow-Credentials: true
 
 <
-* Connection #0 to host csp.api3.yf-m17.tcecqpoc.fsphere.cn left intact
+* Connection #0 to host xxxx.xxx.yf-xxxx.xxxx.fsphere.cn left intact
 {"Response":{"Error":{"Code":"AuthFailure.SignatureExpire","Message":"The signature is expired, please request again."},"RequestId":"a66a1f96-d971-407c-8ae6-996243342fca"}}
 ```
 
@@ -93,7 +93,7 @@ time_total:  %{time_total}\n
 示例
 
 ```bash
-curl -w "@curl-format" -i  -X POST 'http://csp.api3.yf-m17.tccrqpoc.fphere.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=AKIDKm******Ups&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
+curl -w "@curl-format" -i  -X POST 'http://xxxx.xxxx.yf-m17.xxxx.fphere.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=AKIDKm******Ups&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
 HTTP/1.1 200 OK
 Server: nginx
 Date: Wed, 17 Mar 2021 21:30:05 GMT
@@ -118,7 +118,7 @@ time_total:  0.102956
 
 
 ```bash
-curl -i -g 'http://gz.api.berad.xencenrun.com/metric/dimensionlist?page=1&each=10&groupName=consumer_info_topic&apikey=qjegtK********lHvL0N5nZd&cond[appid]=1258638997&cond[instance_id]=kafka-lre3an5q'
+curl -i -g 'http://gz.xxx.xxx.xxxx.com/metric/dimensionlist?page=1&each=10&groupName=consumer_info_topic&apikey=qjegtK********lHvL0N5nZd&cond[appid]=1258638997&cond[instance_id]=ccccc-ccccc'
 
 HTTP/1.1 200 OK
 Server: nginx
@@ -131,9 +131,7 @@ Date: Tue, 25 May 2021 11:50:06 GMT
 X-Frame-Options: SAMEORIGIN
 
 
-{"count":18,"list":\[{"appid":"1258638997","consumer\_group":"sink-apm-trace-decode-prod-flink-apmtracedetailstorejob1","instance\_id":"kafka-lre3an5q","topicid":"topic-32kzpsji","topicname":"dos\_apm\_trace\_decode"},{"appid":"1258638997","consumer\_group":"apm-trace-prod-flink-g1apmtracekafkaprotobufdecodejob3","instance\_id":"ckafka-lre3an5q","topicid":"topic-f6drz3uc","topicname":"apm\_trace"},{"appid":"1258638997","consumer\_group":"dos-apm-trace-decode-prod-flink-apmtraceaggregationjob111","instance\_id":"ckafka-lre3an5q","topicid":"topic-32kzpsji","topicname":"dos\_apm\_trace\_decode"},{"appid":"1258638997","consumer\_group":"sink-apm-trace-decode,{"appid":"1258638997","consumer\_group":"dos-apm-trace-decode-prod-flink-apmj
-
-vmaggregationjob","instance\_id":"ckafka-lre3an5q","topicid":"topic-2nssa854","topicname":"dos\_apm\_jvm\_decode"}\]}
+{"count":18,"list":......","topicname":"dos\_apm\_jvm\_decode"}\]}
 ```
 
 ### 显示下载进度
