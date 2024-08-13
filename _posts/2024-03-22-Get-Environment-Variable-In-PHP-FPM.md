@@ -5,15 +5,15 @@
 Dockerfile 内容如下
 
 ```Dockerfile
-FROM xxx.xxx.com/kafka/php-fpm81:v1.0-stable
+FROM xxx.xxx.com/xxxxx/php-fpm81:v1.0-stable
 
 WORKDIR /app
 
-ENV ADMIN_LOG_HOME=/data/log/kafka-admin
-ENV ADMIN_OP_LOG_HOME=/data/log/kafka-admin-op
+ENV ADMIN_LOG_HOME=/data/log/xxxx-admin
+ENV ADMIN_OP_LOG_HOME=/data/log/xxxx-admin-op
 
-RUN mkdir -p /app/kafka-admin /data/log/kafka-admin /data/log/kafka-admin-op
-COPY . /app/kafka-admin/
+RUN mkdir -p /app/kafka-admin /data/log/xxxx-admin /data/log/xxxx-admin-op
+COPY . /app/xxxx-admin/
 COPY conf/server.conf /etc/nginx/conf.d/admin.conf
 
 COPY entrypoint.sh /app/entrypoint.sh
@@ -50,7 +50,7 @@ Dockerfile 中声明的环境变量只针对 **php-cli** 环境生效， 对于 
 再nginx 配置文件中加入 **``fastcgi_param``**
 
 ```
-fastcgi_param ADMIN_LOG_HOME /data/log/kafka-admin/;
+fastcgi_param ADMIN_LOG_HOME /data/log/xxx-admin/;
 ```
 
 完整配置上下文如下：
@@ -79,7 +79,7 @@ server{
         fastcgi_pass unix:/run/php/php8.1-fpm.sock;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-        fastcgi_param ADMIN_LOG_HOME /data/log/kafka-admin/;
+        fastcgi_param ADMIN_LOG_HOME /data/log/xxxx-admin/;
         keepalive_timeout 1800;
         fastcgi_connect_timeout 1800;
         fastcgi_send_timeout 1800;
