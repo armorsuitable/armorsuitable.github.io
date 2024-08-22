@@ -14,7 +14,7 @@
 ```bash
 curl -i -X POST 'http://xxxx.xxxx.xxx-m17.xxxx.fphere.cn' \ 
 -H 'Content-Type:application/x-www-form-urlencode' \ 
--d 'Action=xxxxx&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=xr*******c&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
+-d 'Nonce=918486811&SecretId=xr*******c&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07
 
 
 HTTP/1.1 200 OK
@@ -25,7 +25,7 @@ Content-Length: 167
 Connection: keep-alive
 Access-Control-Allow-Credentials: true
 
-{"Response":{"Error":{"Code":"MissingParameter","Message":"The request is missing a required parameter `Action`."},"RequestId":"db76077c-087d-4de4-a609-5cb54179ba00"}}
+{"Response":{"Error":{"Code":"MissingParameter","Message":"The request is missing a required parameter `Action`."},"RequestId":"q"}}
 ```
 
 
@@ -37,13 +37,13 @@ Access-Control-Allow-Credentials: true
 示例
 
 ```bash
-curl -i -L -v -X POST 'http://xxx.xxxx.xx.xxxx.xxx.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=Axc******tXrqUps&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
+curl -i -L -v -X POST 'http://xxx.xxxx.xx.xxxx.xxx.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=tes&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=Ax'
 Note: Unnecessary use of -X or --request, POST is already inferred.
 *   Trying 118.24.227.108...
 * TCP_NODELAY set
-* Connected to csp.api3.yf-m17.tcecqpoc.fsphere.cn (118.24.227.108) port 80 (#0)
+* Connected to cs.c.cccc.ecqpoc.xx.cn (108.108.108.108) port 80 (#0)
 > POST / HTTP/1.1
-> Host: csp.api3.yf-m17.tcecqpoc.fsphere.cn
+> Host: cs.c.cccc.ecqpoc.xx.cn
 > User-Agent: curl/7.64.1
 > Accept: */*
 > Content-Type:application/x-www-form-urlencode
@@ -67,7 +67,7 @@ Access-Control-Allow-Credentials: true
 
 <
 * Connection #0 to host xxxx.xxx.yf-xxxx.xxxx.fsphere.cn left intact
-{"Response":{"Error":{"Code":"AuthFailure.SignatureExpire","Message":"The signature is expired, please request again."},"RequestId":"a66a1f96-d971-407c-8ae6-996243342fca"}}
+{"Response":{"Error":{"Code":"AuthFailure.SignatureExpire","Message":"The signature is expired, please request again."},"RequestId":"a66axxxx-8ae6-996243342fca"}}
 ```
 
 
@@ -93,7 +93,7 @@ time_total:  %{time_total}\n
 示例
 
 ```bash
-curl -w "@curl-format" -i  -X POST 'http://xxxx.xxxx.yf-m17.xxxx.fphere.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=test-1255000498&CosRegion=shanghai&EndDate=2020-11-16&Nonce=918486811&SecretId=AKIDKm******Ups&StartDate=2020-11-12&Timestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7qTcW%2F505VH1MFI%3D'
+curl -w "@curl-format" -i  -X POST 'http://xxxx.xxxx.yf-m17.xxxx.fphere.cn' -H 'Content-Type:application/x-www-form-urlencode' -d 'Action=GetStatDays&Bucket=txxx498&CosRegion=shanghai&EndDate=2020-11-16&NoncecTimestamp=1605604728&Version=2020-01-07&Signature=IcwX96nrrZGz7%3D'
 HTTP/1.1 200 OK
 Server: nginx
 Date: Wed, 17 Mar 2021 21:30:05 GMT
@@ -118,7 +118,7 @@ time_total:  0.102956
 
 
 ```bash
-curl -i -g 'http://gz.xxx.xxx.xxxx.com/metric/dimensionlist?page=1&each=10&groupName=consumer_info_topic&apikey=qjegtK********lHvL0N5nZd&cond[appid]=1258638997&cond[instance_id]=ccccc-ccccc'
+curl -i -g 'http://xxx.xxx.xxx.xxxx.com/metric/xxxxx?page=1&each=10&groupName=consumer_info_topic&apikey=qjegtK********lHvL0N5nZd&cond[appid]=1258638997&cond[instance_id]=ccccc-ccccc'
 
 HTTP/1.1 200 OK
 Server: nginx
@@ -131,7 +131,7 @@ Date: Tue, 25 May 2021 11:50:06 GMT
 X-Frame-Options: SAMEORIGIN
 
 
-{"count":18,"list":......","topicname":"dos\_apm\_jvm\_decode"}\]}
+{"count":18,"list":......","topicname":"d_"}\]}
 ```
 
 ### 显示下载进度
