@@ -44,10 +44,9 @@ nsenter -t 29120 -n -- tcpdump -nn -vv port 8080
 16:02:27.665396 IP (tos 0x68, ttl 54, id 14234, offset 0, flags [DF], proto TCP (6), length 492)
     10.0.0.13.37036 > 192.168.3.44.8080: Flags [P.], cksum 0x1344 (correct), seq 1:453, ack 1, win 229, length 452: HTTP, length: 452
 	PUT /4MB.in5577006791947779410 HTTP/1.1
-	Host: 636c-cloud-runner154-18f284-1255000006.web3.tcb-tcs-test.tencent-cloud.com
+	Host: 636c-cloud-runner154-18f284.web3.tcb-tcs-test.cloud.com
 	User-Agent: cos-go-sdk-v5/0.7.12
 	Transfer-Encoding: chunked
-	Authorization: q-sign-algorithm=sha1&q-ak=AKIDJm12pOimbBVTBftsb4ILAl7DXcR1LPEn&q-sign-time=1607068947;1607072547&q-key-time=1607068947;1607072547&q-header-list=host&q-url-param-list=&q-signature=8ce49f14a6491eb85760ee715fcc94ccc8e4bfb1
 	Accept-Encoding: gzip
 	
 16:02:27.665408 IP (tos 0x0, ttl 64, id 696, offset 0, flags [DF], proto TCP (6), length 40)
@@ -79,7 +78,6 @@ nsenter -t 29120 -n -- tcpdump -nn -vv port 8080
 	Connection: keep-alive
 	ETag: "b5cfa9d6c8febd618f91ac2843d50a1c"
 	Accept-Ranges: bytes
-	x-amz-request-id: tx0000000000000004db7e1-005fc9ed0b-27d41-default
 	x-response-csp-component: proxy-raw
 	
 16:02:28.069643 IP (tos 0x0, ttl 64, id 997, offset 0, flags [DF], proto TCP (6), length 229)
