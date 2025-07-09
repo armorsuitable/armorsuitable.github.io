@@ -4,7 +4,7 @@
 
 查询 JVM GC 回收的详细信息
 
-**jstat -gcutil pid (internalSeconds)**
+**jstat -gcutil pid (intervalMillSeconds)**
 
 查看 GC 活动的记录，间隔制定的时间
 
@@ -348,7 +348,7 @@
 
 ## jmap
 
-**jmap -heap <pid>** 
+**jmap -heap (pid)** 
 
 查询 JVM 空间使用情况, 可以看到
 
