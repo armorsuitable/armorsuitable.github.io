@@ -134,23 +134,23 @@ Timeline →
 Cleanup Thread (producerIdleCleanup)        Business Thread (HTTP Request)
 ────────────────────────────────────        ──────────────────────────────
 
-① Iterates entrySet, finds resourceId="A"
+1.  Iterates entrySet, finds resourceId="A"
    timed out, executes managedProducer.close()
    ↓ producer's underlying connection is closed
-                                            ② acquireProducer("A")
+                                            2. acquireProducer("A")
                                                enters compute()
                                                existingProducer != null ✓
                                                (not yet removed from map, still present)
                                                executes markAccessTime()
                                                returns this already-closed producer
 
-                                            ③ Uses this producer to send a message
+                                            3. Uses this producer to send a message
                                                → throws IllegalStateException:
                                                  "Cannot perform operation
                                                   after producer has been closed"
 
-④ readyToRemoveResourceIds.add("A")
-⑤ producerMap.remove("A")
+4. readyToRemoveResourceIds.add("A")
+5. producerMap.remove("A")
    (too late, business thread already got the bad producer)
 ```
 
@@ -162,21 +162,21 @@ The problem lies in this code within `cleanupIdleProducers()`:
 // Lines 74-78
 if ((now - managedProducer.lastAccessTime) > MAX_IDLE_TIME_MS) {
     try {
-        managedProducer.close();           // ← ① Close the producer first
+        managedProducer.close();           // ← 1. Close the producer first
         readyToRemoveResourceIds.add(resourceId);
     } catch (Exception e) { ... }
 }
 
 // Lines 83-85
 if (!readyToRemoveResourceIds.isEmpty()) {
-    readyToRemoveResourceIds.forEach(producerMap::remove);  // ← ② Remove from map later
+    readyToRemoveResourceIds.forEach(producerMap::remove);  // ← 2. Remove from map later
 }
 ```
 
 **Key contradiction**:
 - `acquireProducer()` uses `compute()` to guarantee atomicity of "get or create"
 - But `cleanupIdleProducers()`'s `close()` + `remove()` are **two separate non-atomic operations**
-- Between ① and ② there exists a time window where the map still holds a **closed** producer object
+- Between 1. and 2. there exists a time window where the map still holds a **closed** producer object
 
 Although `compute()` internally holds a bin lock on a single key, the cleanup thread's `close()` operation is not executed under any `compute` lock protection, so there is no mutual exclusion between them.
 
@@ -230,23 +230,23 @@ This ordering guarantees:
 清理线程 (producerIdleCleanup)          业务线程 (HTTP 请求)
 ─────────────────────────────          ─────────────────────────
                                         
-① 遍历 entrySet，发现 resourceId="A"
+1. 遍历 entrySet，发现 resourceId="A"
    超时，执行 managedProducer.close()
    ↓ producer 底层连接已关闭
-                                        ② acquireProducer("A")
+                                        2. acquireProducer("A")
                                            进入 compute()
                                            existingProducer != null ✓
                                            (map 里还没 remove，所以还在)
                                            执行 markAccessTime()
                                            返回这个已关闭的 producer
                                         
-                                        ③ 用这个 producer 发消息
+                                        3. 用这个 producer 发消息
                                            → 抛出 IllegalStateException:
                                              "Cannot perform operation 
                                               after producer has been closed"
                                         
-④ readyToRemoveResourceIds.add("A")
-⑤ producerMap.remove("A")
+4. readyToRemoveResourceIds.add("A")
+5. producerMap.remove("A")
    (为时已晚，业务线程已经拿到坏的 producer)
 ```
 
@@ -258,21 +258,21 @@ This ordering guarantees:
 // 第 74-78 行
 if ((now - managedProducer.lastAccessTime) > MAX_IDLE_TIME_MS) {
     try {
-        managedProducer.close();           // ← ① 先关闭 producer
+        managedProducer.close();           // ← 1. 先关闭 producer
         readyToRemoveResourceIds.add(resourceId);
     } catch (Exception e) { ... }
 }
 
 // 第 83-85 行
 if (!readyToRemoveResourceIds.isEmpty()) {
-    readyToRemoveResourceIds.forEach(producerMap::remove);  // ← ② 后从 map 移除
+    readyToRemoveResourceIds.forEach(producerMap::remove);  // ← 2. 后从 map 移除
 }
 ```
 
 **关键矛盾**：
 - `acquireProducer()` 使用 `compute()` 保证了"获取或创建"的原子性
 - 但 `cleanupIdleProducers()` 的 `close()` + `remove()` 是**两个独立的非原子操作**
-- 在 ① 和 ② 之间存在一个时间窗口，此时 map 中仍然持有一个**已关闭**的 producer 对象
+- 在 1. 和 2. 之间存在一个时间窗口，此时 map 中仍然持有一个**已关闭**的 producer 对象
 
 `compute()` 内部虽然对单个 key 加了 bin 锁，但清理线程的 `close()` 操作并不在任何 `compute` 锁的保护下执行，所以两者之间没有互斥关系。
 
